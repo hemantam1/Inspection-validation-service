@@ -29,7 +29,7 @@ Inspection Platform
         ▼
  Validator Factory
         │
- ┌──────┼────────────┬──────────────┬─────────────┐
+ ┌──────┼────────────┬──────────────┬
  ▼      ▼            ▼              ▼
 Blur   GPS     Duplicate     Timestamp
 Validator Validator Validator   Validator
