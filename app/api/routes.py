@@ -7,8 +7,6 @@ from app.services.validation_service import ValidationService
 router = APIRouter()
 
 validation_service = ValidationService()
-
-
 @router.post(
     "/validate",
     response_model=ValidationResponse,

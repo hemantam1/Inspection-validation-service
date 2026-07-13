@@ -1,8 +1,5 @@
 from enum import Enum
-
-
 class JobType(str, Enum):
-
     BLUR_CHECK = "BLUR_CHECK"
     GPS_CHECK = "GPS_CHECK"
     DUPLICATE_CHECK = "DUPLICATE_CHECK"
@@ -10,21 +7,18 @@ class JobType(str, Enum):
 
 
 class JobStatus(str, Enum):
-    
     PENDING = "PENDING"
     COMPLETED = "COMPLETED"
     FAILED = "FAILED"
 
 
 class EvidenceType(str, Enum):
-
     PHOTO = "PHOTO"
     VIDEO = "VIDEO"
     DOCUMENT = "DOCUMENT"
 
 
 class RiskSeverity(str, Enum):
-
     LOW = "LOW"
     MEDIUM = "MEDIUM"
     HIGH = "HIGH"
@@ -32,8 +26,8 @@ class RiskSeverity(str, Enum):
 
 
 class RiskEventType(str, Enum):
-
     BLUR_IMAGE = "BLUR_IMAGE"
     GPS_MISMATCH = "GPS_MISMATCH"
     DUPLICATE_IMAGE = "DUPLICATE_IMAGE"
     FAST_SUBMISSION = "FAST_SUBMISSION"
+    TIMESTAMP_ANOMALY = "TIMESTAMP_ANOMALY"

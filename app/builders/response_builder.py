@@ -5,8 +5,6 @@ from app.models.validation_result import ValidationResult
 
 
 class ResponseBuilder:
-    
-
     @staticmethod
     def build(
         request: ValidationRequest,
