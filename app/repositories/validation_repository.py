@@ -1,3 +1,5 @@
+from sqlalchemy import func
+
 from app.database.connection import SessionLocal
 from app.database.models import ValidationRecord
 from app.models.enums import JobStatus
@@ -69,6 +71,55 @@ class ValidationRepository:
                 )
                 .first()
             )
+
+        finally:
+            db.close()
+
+    def get_stats(self):
+
+        db = SessionLocal()
+
+        try:
+
+            return {
+                "totalValidations": db.query(ValidationRecord).count(),
+
+                "completed": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.status == JobStatus.COMPLETED.value
+                )
+                .count(),
+
+                "failed": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.status == JobStatus.FAILED.value
+                )
+                .count(),
+
+                "blurChecks": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.job_type == "BLUR_CHECK"
+                )
+                .count(),
+
+                "gpsChecks": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.job_type == "GPS_CHECK"
+                )
+                .count(),
+
+                "duplicateChecks": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.job_type == "DUPLICATE_CHECK"
+                )
+                .count(),
+
+                "timestampChecks": db.query(ValidationRecord)
+                .filter(
+                    ValidationRecord.job_type == "TIMESTAMP_ANOMALY_CHECK"
+                )
+                .count(),
+            }
 
         finally:
             db.close()

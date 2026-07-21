@@ -4,9 +4,11 @@ from app.models.request import ValidationRequest
 from app.models.response import ErrorInfo, RiskFlag
 from app.models.validation_result import ValidationResult
 from app.utils.image_utils import (
-    load_image,
     calculate_blur_score,
     is_blurry,
+)
+from app.utils.image_preprocessing import (
+    preprocess_image,
 )
 from app.validators.base_validator import BaseValidator
 
@@ -14,8 +16,11 @@ from app.validators.base_validator import BaseValidator
 class BlurValidator(BaseValidator):
 
     def validate(self, request: ValidationRequest) -> ValidationResult:
-        try:           
-            image = load_image(request.evidence.fileUrl)
+        try:
+
+            image = preprocess_image(
+                request.evidence.fileUrl
+            )
 
             blur_score = calculate_blur_score(image)
 

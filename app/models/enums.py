@@ -31,3 +31,12 @@ class RiskEventType(str, Enum):
     DUPLICATE_IMAGE = "DUPLICATE_IMAGE"
     FAST_SUBMISSION = "FAST_SUBMISSION"
     TIMESTAMP_ANOMALY = "TIMESTAMP_ANOMALY"
+
+
+class InspectionAreaType(str, Enum):
+    BANK_BRANCH = "BANK_BRANCH"
+    ATM = "ATM"
+    OFFICE = "OFFICE"
+    WAREHOUSE = "WAREHOUSE"
+    FACTORY = "FACTORY"
+    FIELD = "FIELD"

@@ -41,3 +41,6 @@ class ValidationService:
         job_id: str,
     ):
         return self.repository.get_by_job_id(job_id)
+
+    def get_stats(self):
+        return self.repository.get_stats()

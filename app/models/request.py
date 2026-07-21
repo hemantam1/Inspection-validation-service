@@ -3,13 +3,16 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from app.models.enums import EvidenceType, JobType
+from app.models.enums import (
+    EvidenceType,
+    JobType,
+    InspectionAreaType,
+)
 
 
 class RegisteredLocation(BaseModel):
     latitude: float
     longitude: float
-    radiusMeters: float
 
 
 class Evidence(BaseModel):
@@ -42,6 +45,8 @@ class ValidationContext(BaseModel):
     priorStepCapturedAt: datetime | None = None
 
     taskStartedAt: datetime | None = None
+    
+    inspectionAreaType: InspectionAreaType
 
 
 class ValidationRequest(BaseModel):

@@ -1,9 +1,11 @@
+from app.core.gps_config import AREA_RADIUS
 from app.models.enums import RiskEventType, RiskSeverity
 from app.models.request import ValidationRequest
 from app.models.response import RiskFlag, ErrorInfo
 from app.models.validation_result import ValidationResult
 from app.utils.gps_utils import calculate_distance, within_radius
 from app.validators.base_validator import BaseValidator
+
 
 class GPSValidator(BaseValidator):
     """
@@ -37,9 +39,13 @@ class GPSValidator(BaseValidator):
             registered_location.longitude,
         )
 
+        # Default radius based on inspection area
+        allowed_radius = AREA_RADIUS[
+            request.context.inspectionAreaType.value
+        ]
         within_allowed_radius = within_radius(
             distance,
-            registered_location.radiusMeters,
+            allowed_radius,
         )
 
         risk_flags = []
@@ -53,16 +59,18 @@ class GPSValidator(BaseValidator):
                     reason=(
                         f"Evidence captured {distance:.2f}m away from the "
                         f"registered location. Allowed radius: "
-                        f"{registered_location.radiusMeters:.2f}m."
+                        f"{allowed_radius:.2f}m."
                     ),
                 )
             )
 
         return ValidationResult(
-            confidenceScore=95,
+            confidenceScore=95 if within_allowed_radius else 85,
             result={
                 "withinRadius": within_allowed_radius,
                 "distanceMeters": round(distance, 2),
+                "allowedRadius": allowed_radius,
+                "inspectionAreaType": request.context.inspectionAreaType.value,
                 "spoofingSuspected": not within_allowed_radius,
             },
             riskFlags=risk_flags,

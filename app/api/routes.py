@@ -47,3 +47,12 @@ def get_result(
         )
 
     return result
+
+
+@router.get(
+    "/stats",
+    summary="Get validation statistics",
+)
+def get_stats():
+
+    return validation_service.get_stats()
