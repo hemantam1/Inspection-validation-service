@@ -42,19 +42,26 @@ class ValidationRepository:
 
             db.add(record)
             db.commit()
+            db.refresh(record)
+
+        except Exception:
+
+            db.rollback()
+            raise
 
         finally:
+
             db.close()
 
-    def get_all(self):
+        def get_all(self):
 
-        db = SessionLocal()
+            db = SessionLocal()
 
-        try:
-            return db.query(ValidationRecord).all()
+            try:
+                return db.query(ValidationRecord).all()
 
-        finally:
-            db.close()
+            finally:
+                db.close()
 
     def get_by_job_id(
         self,

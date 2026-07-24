@@ -1,14 +1,16 @@
 from app.core.constants import BLUR_THRESHOLD
-from app.models.enums import RiskEventType, RiskSeverity
+from app.models.enums import (
+    EvidenceType,
+    RiskEventType,
+    RiskSeverity,
+)
 from app.models.request import ValidationRequest
 from app.models.response import ErrorInfo, RiskFlag
 from app.models.validation_result import ValidationResult
+from app.utils.image_preprocessing import preprocess_image
 from app.utils.image_utils import (
     calculate_blur_score,
     is_blurry,
-)
-from app.utils.image_preprocessing import (
-    preprocess_image,
 )
 from app.validators.base_validator import BaseValidator
 
@@ -16,7 +18,20 @@ from app.validators.base_validator import BaseValidator
 class BlurValidator(BaseValidator):
 
     def validate(self, request: ValidationRequest) -> ValidationResult:
+
         try:
+
+            # Blur validation is only applicable for image evidence.
+            if request.evidence.evidenceType != EvidenceType.PHOTO:
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_EVIDENCE_TYPE",
+                        message="Blur validation supports PHOTO evidence only.",
+                    ),
+                )
 
             image = preprocess_image(
                 request.evidence.fileUrl
@@ -39,7 +54,10 @@ class BlurValidator(BaseValidator):
                         riskEventType=RiskEventType.BLUR_IMAGE,
                         severity=RiskSeverity.MEDIUM,
                         score=20,
-                        reason=f"Blur score ({blur_score:.2f}) is below threshold ({BLUR_THRESHOLD}).",
+                        reason=(
+                            f"Blur score ({blur_score:.2f}) "
+                            f"is below threshold ({BLUR_THRESHOLD})."
+                        ),
                     )
                 )
 

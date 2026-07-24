@@ -1,13 +1,17 @@
 from app.core.constants import DUPLICATE_SIMILARITY_THRESHOLD
-from app.models.enums import RiskEventType, RiskSeverity
+from app.models.enums import (
+    EvidenceType,
+    RiskEventType,
+    RiskSeverity,
+)
 from app.models.request import ValidationRequest
 from app.models.response import ErrorInfo, RiskFlag
 from app.models.validation_result import ValidationResult
 from app.utils.hash_utils import (
-    load_image,
     calculate_phash,
     calculate_similarity,
 )
+from app.utils.image_preprocessing import preprocess_image
 from app.validators.base_validator import BaseValidator
 
 
@@ -19,7 +23,20 @@ class DuplicateValidator(BaseValidator):
     def validate(self, request: ValidationRequest) -> ValidationResult:
 
         try:
-            current_image = load_image(
+
+            # Duplicate validation is applicable only for image evidence.
+            if request.evidence.evidenceType != EvidenceType.PHOTO:
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_EVIDENCE_TYPE",
+                        message="Duplicate validation supports PHOTO evidence only.",
+                    ),
+                )
+
+            current_image = preprocess_image(
                 request.evidence.fileUrl
             )
 
@@ -29,9 +46,13 @@ class DuplicateValidator(BaseValidator):
 
             for reference_url in request.context.referenceEvidenceUrls:
 
-                reference_image = load_image(reference_url)
+                reference_image = preprocess_image(
+                    reference_url
+                )
 
-                reference_hash = calculate_phash(reference_image)
+                reference_hash = calculate_phash(
+                    reference_image
+                )
 
                 similarity = calculate_similarity(
                     current_hash,
