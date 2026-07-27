@@ -7,10 +7,12 @@ from app.models.enums import (
 from app.models.request import ValidationRequest
 from app.models.response import ErrorInfo, RiskFlag
 from app.models.validation_result import ValidationResult
-from app.utils.image_preprocessing import preprocess_image
 from app.utils.image_utils import (
     calculate_blur_score,
     is_blurry,
+)
+from app.utils.image_preprocessing import (
+    preprocess_for_blur,
 )
 from app.validators.base_validator import BaseValidator
 
@@ -33,7 +35,7 @@ class BlurValidator(BaseValidator):
                     ),
                 )
 
-            image = preprocess_image(
+            image = preprocess_for_blur(
                 request.evidence.fileUrl
             )
 

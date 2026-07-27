@@ -9,6 +9,18 @@ router = APIRouter()
 validation_service = ValidationService()
 
 
+@router.get(
+    "/health",
+    summary="Health Check",
+)
+def health_check():
+
+    return {
+        "status": "healthy",
+        "service": "AI Inspection Validation Service",
+    }
+
+
 @router.post(
     "/validate",
     response_model=ValidationResponse,
