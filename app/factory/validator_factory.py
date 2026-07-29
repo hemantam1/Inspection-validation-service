@@ -4,7 +4,7 @@ from app.validators.blur_validator import BlurValidator
 from app.validators.gps_validator import GPSValidator
 from app.validators.duplicate_validator import DuplicateValidator
 from app.validators.timestamp_validator import TimestampValidator
-
+from app.validators.ocr_validator import OCRValidator
 
 class ValidatorFactory:
 
@@ -13,6 +13,7 @@ class ValidatorFactory:
         JobType.GPS_CHECK: GPSValidator,
         JobType.DUPLICATE_CHECK: DuplicateValidator,
         JobType.TIMESTAMP_ANOMALY_CHECK: TimestampValidator,
+        JobType.OCR_CHECK: OCRValidator
     }
 
     @classmethod

@@ -4,6 +4,7 @@ class JobType(str, Enum):
     GPS_CHECK = "GPS_CHECK"
     DUPLICATE_CHECK = "DUPLICATE_CHECK"
     TIMESTAMP_ANOMALY_CHECK = "TIMESTAMP_ANOMALY_CHECK"
+    OCR_CHECK = "OCR_CHECK"
 
 
 class JobStatus(str, Enum):
@@ -31,6 +32,7 @@ class RiskEventType(str, Enum):
     DUPLICATE_IMAGE = "DUPLICATE_IMAGE"
     FAST_SUBMISSION = "FAST_SUBMISSION"
     TIMESTAMP_ANOMALY = "TIMESTAMP_ANOMALY"
+    DOCUMENT_FRAUD = "DOCUMENT_FRAUD"
 
 
 class InspectionAreaType(str, Enum):
