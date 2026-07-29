@@ -1,7 +1,7 @@
 from app.core.gps_config import AREA_RADIUS
 from app.models.enums import RiskEventType, RiskSeverity
 from app.models.request import ValidationRequest
-from app.models.response import RiskFlag, ErrorInfo
+from app.models.response import ErrorInfo, RiskFlag
 from app.models.validation_result import ValidationResult
 from app.utils.gps_utils import calculate_distance, within_radius
 from app.validators.base_validator import BaseValidator
@@ -34,6 +34,50 @@ class GPSValidator(BaseValidator):
                     ),
                 )
 
+            # Validate evidence GPS coordinates
+            if (
+                request.evidence.latitude is None
+                or request.evidence.longitude is None
+            ):
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_GPS_COORDINATES",
+                        message="Latitude and longitude are required for GPS validation.",
+                    ),
+                )
+
+            if not (
+                -90 <= request.evidence.latitude <= 90
+                and -180 <= request.evidence.longitude <= 180
+            ):
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_GPS_COORDINATES",
+                        message="Invalid GPS coordinates provided.",
+                    ),
+                )
+
+            # Validate registered location coordinates
+            if (
+                registered_location.latitude is None
+                or registered_location.longitude is None
+            ):
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_REGISTERED_LOCATION",
+                        message="Registered location coordinates are invalid.",
+                    ),
+                )
+
             distance = calculate_distance(
                 request.evidence.latitude,
                 request.evidence.longitude,
@@ -50,7 +94,6 @@ class GPSValidator(BaseValidator):
                 allowed_radius,
             )
 
-            # Keep GPS accuracy for reporting (matches request schema)
             gps_accuracy = request.evidence.gpsAccuracyM
 
             risk_flags = []

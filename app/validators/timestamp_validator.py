@@ -14,64 +14,95 @@ class TimestampValidator(BaseValidator):
 
     def validate(self, request: ValidationRequest) -> ValidationResult:
 
-        captured_at = request.evidence.capturedAt
-        task_started_at = request.context.taskStartedAt
-        prior_step_at = request.context.priorStepCapturedAt
+        try:
 
-        anomaly_detected = False
-        reason = None
+            captured_at = request.evidence.capturedAt
+            task_started_at = request.context.taskStartedAt
+            prior_step_at = request.context.priorStepCapturedAt
 
-        risk_flags = []
+            anomaly_detected = False
+            reason = None
 
-        # Rule 1
-        if task_started_at and captured_at < task_started_at:
+            risk_flags = []
 
-            anomaly_detected = True
-            reason = "Capture timestamp is earlier than task start."
-
-        # Rule 2
-        elif prior_step_at and captured_at < prior_step_at:
-
-            anomaly_detected = True
-            reason = "Capture timestamp is earlier than previous step."
-
-        # Rule 3
-        elif prior_step_at:
-
-            interval = seconds_between(
-                prior_step_at,
-                captured_at,
-            )
-
-            if is_fast_submission(
-                interval,
-                MIN_CAPTURE_INTERVAL_SECONDS,
-            ):
+            # Rule 1: Capture before task start
+            if task_started_at and captured_at < task_started_at:
 
                 anomaly_detected = True
+                reason = "Capture timestamp is earlier than task start."
 
-                reason = (
-                    f"Capture occurred only "
-                    f"{interval:.1f} seconds after previous step."
+                risk_flags.append(
+                    RiskFlag(
+                        riskEventType=RiskEventType.TIMESTAMP_ANOMALY,
+                        severity=RiskSeverity.HIGH,
+                        score=35,
+                        reason=reason,
+                    )
                 )
 
-        if anomaly_detected:
+            # Rule 2: Capture before previous step
+            elif prior_step_at and captured_at < prior_step_at:
 
-            risk_flags.append(
-                RiskFlag(
-                    riskEventType=RiskEventType.TIMESTAMP_ANOMALY,
-                    severity=RiskSeverity.HIGH,
-                    score=35,
-                    reason=reason,
+                anomaly_detected = True
+                reason = "Capture timestamp is earlier than previous step."
+
+                risk_flags.append(
+                    RiskFlag(
+                        riskEventType=RiskEventType.TIMESTAMP_ANOMALY,
+                        severity=RiskSeverity.HIGH,
+                        score=35,
+                        reason=reason,
+                    )
                 )
+
+            # Rule 3: Fast submission
+            elif prior_step_at:
+
+                interval = seconds_between(
+                    prior_step_at,
+                    captured_at,
+                )
+
+                if is_fast_submission(
+                    interval,
+                    MIN_CAPTURE_INTERVAL_SECONDS,
+                ):
+
+                    anomaly_detected = True
+
+                    reason = (
+                        f"Capture occurred only "
+                        f"{interval:.1f} seconds after previous step."
+                    )
+
+                    risk_flags.append(
+                        RiskFlag(
+                            riskEventType=RiskEventType.FAST_SUBMISSION,
+                            severity=RiskSeverity.HIGH,
+                            score=35,
+                            reason=reason,
+                        )
+                    )
+
+            return ValidationResult(
+                confidenceScore=95 if not anomaly_detected else 80,
+                result={
+                    "anomalyDetected": anomaly_detected,
+                    "reason": reason,
+                },
+                riskFlags=risk_flags,
+                error=None,
             )
 
-        return ValidationResult(
-            confidenceScore=95 if not anomaly_detected else 80,
-            result={
-                "anomalyDetected": anomaly_detected,
-                "reason": reason,
-            },
-            riskFlags=risk_flags,
-            error=None,
-        )
+        except Exception as e:
+
+            return ValidationResult(
+                confidenceScore=0,
+                result={},
+                riskFlags=[],
+                error=ErrorInfo(
+                    code="TIMESTAMP_VALIDATION_ERROR",
+                    message="Failed to perform timestamp validation.",
+                    details=str(e),
+                ),
+            )
