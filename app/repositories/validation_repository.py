@@ -53,15 +53,14 @@ class ValidationRepository:
 
             db.close()
 
-        def get_all(self):
+    def get_all(self):
 
-            db = SessionLocal()
+        db = SessionLocal()
 
-            try:
-                return db.query(ValidationRecord).all()
-
-            finally:
-                db.close()
+        try:
+            return db.query(ValidationRecord).all()
+        finally:
+            db.close()
 
     def get_by_job_id(
         self,

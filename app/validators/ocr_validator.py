@@ -1,4 +1,8 @@
-from app.core.constants import OCR_MATCH_THRESHOLD
+from app.core.constants import (
+    OCR_MATCH_THRESHOLD,
+    OCR_CONFIDENCE_PENALTY,
+)
+from app.core.logger import get_logger
 from app.models.enums import (
     EvidenceType,
     RiskEventType,
@@ -17,6 +21,8 @@ from app.utils.ocr_utils import (
 )
 from app.validators.base_validator import BaseValidator
 
+logger = get_logger(__name__)
+
 
 class OCRValidator(BaseValidator):
 
@@ -25,12 +31,24 @@ class OCRValidator(BaseValidator):
         request: ValidationRequest,
     ) -> ValidationResult:
 
+        logger.info("OCR validation started")
+
         try:
+
+            logger.debug(
+                "Evidence type: %s",
+                request.evidence.evidenceType,
+            )
 
             if request.evidence.evidenceType not in (
                 EvidenceType.PHOTO,
                 EvidenceType.DOCUMENT,
             ):
+                logger.warning(
+                    "Unsupported evidence type: %s",
+                    request.evidence.evidenceType,
+                )
+
                 return ValidationResult(
                     confidenceScore=0,
                     result={},
@@ -46,10 +64,9 @@ class OCRValidator(BaseValidator):
 
             expected_text = request.context.expectedText
 
-            if (
-                expected_text is None
-                or not expected_text.strip()
-            ):
+            if expected_text is None or not expected_text.strip():
+                logger.warning("Missing expectedText in validation context")
+
                 return ValidationResult(
                     confidenceScore=0,
                     result={},
@@ -63,18 +80,30 @@ class OCRValidator(BaseValidator):
                     ),
                 )
 
+            logger.info(
+                "Running OCR on image: %s",
+                request.evidence.fileUrl,
+            )
+
             extracted_text, ocr_confidence = extract_text(
                 request.evidence.fileUrl
             )
 
-            if not extracted_text:
+            logger.info(
+                "OCR completed | confidence=%.2f",
+                ocr_confidence,
+            )
+
+            if not extracted_text.strip():
+
+                logger.warning("No text extracted from image")
 
                 return ValidationResult(
                     confidenceScore=0,
                     result={
                         "expectedText": expected_text,
                         "extractedText": "",
-                        "ocrConfidence": ocr_confidence,
+                        "ocrConfidence": 0.0,
                         "textMatched": False,
                         "matchScore": 0.0,
                     },
@@ -102,11 +131,26 @@ class OCRValidator(BaseValidator):
                 OCR_MATCH_THRESHOLD,
             )
 
-            confidence = 95 if matched else 85
+            logger.info(
+                "OCR Match | score=%.2f | threshold=%s | matched=%s",
+                match_score,
+                OCR_MATCH_THRESHOLD,
+                matched,
+            )
+
+            confidence = (
+                round(ocr_confidence)
+                if matched
+                else max(round(ocr_confidence - OCR_CONFIDENCE_PENALTY), 0)
+            )
 
             risk_flags = []
 
             if not matched:
+                logger.warning(
+                    "OCR text mismatch detected. "
+                    "Adding DOCUMENT_FRAUD risk flag."
+                )
 
                 risk_flags.append(
                     RiskFlag(
@@ -120,12 +164,14 @@ class OCRValidator(BaseValidator):
                     )
                 )
 
+            logger.info("OCR validation completed successfully")
+
             return ValidationResult(
                 confidenceScore=confidence,
                 result={
                     "expectedText": expected_text,
                     "extractedText": extracted_text,
-                    "ocrConfidence": ocr_confidence,
+                    "ocrConfidence": round(ocr_confidence, 2),
                     "matchScore": round(match_score, 2),
                     "textMatched": matched,
                 },
@@ -134,6 +180,11 @@ class OCRValidator(BaseValidator):
             )
 
         except Exception as e:
+
+            logger.exception(
+                "OCR validation failed: %s",
+                str(e),
+            )
 
             return ValidationResult(
                 confidenceScore=0,

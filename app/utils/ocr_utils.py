@@ -1,129 +1,133 @@
-from functools import lru_cache
-from pathlib import Path
-import re
+import os
 
-import easyocr
+import pytesseract
+from PIL import Image
+from pytesseract import Output
 from rapidfuzz import fuzz
 
+from app.core.logger import get_logger
 
-@lru_cache(maxsize=1)
-def get_reader():
-    """
-    Initialize EasyOCR reader once and reuse it.
-    """
+logger = get_logger(__name__)
 
-    print("1. Creating EasyOCR Reader...")
+_TESSERACT_CMD = os.getenv("TESSERACT_CMD")
+if _TESSERACT_CMD:
+    pytesseract.pytesseract.tesseract_cmd = _TESSERACT_CMD
 
-    reader = easyocr.Reader(["en"], gpu=False)
-
-    print("2. EasyOCR Reader Created.")
-
-    return reader
+_TESSERACT_CONFIG = os.getenv("TESSERACT_CONFIG", "--oem 3 --psm 6")
+_TESSERACT_LANG = os.getenv("TESSERACT_LANG", "eng")
 
 
-def extract_text(image_path: str) -> tuple[str, int]:
-    """
-    Extract text from an image.
+def extract_text(image_path):
 
-    Returns:
-        tuple:
-            extracted_text (str)
-            average_confidence (0-100)
-    """
+    logger.info("OCR extraction started | image=%s", image_path)
 
-    import cv2
+    try:
+        image = Image.open(image_path)
+    except FileNotFoundError:
+        logger.error("OCR image not found: %s", image_path)
+        raise
+    except Exception:
+        logger.exception("Failed to open image: %s", image_path)
+        raise
 
-    print("3. extract_text() called")
+    try:
+        data = pytesseract.image_to_data(
+            image,
+            lang=_TESSERACT_LANG,
+            config=_TESSERACT_CONFIG,
+            output_type=Output.DICT,
+        )
+    except pytesseract.TesseractNotFoundError:
+        logger.exception(
+            "Tesseract executable not found. "
+            "Install Tesseract or configure TESSERACT_CMD."
+        )
+        raise
+    except Exception:
+        logger.exception("OCR execution failed for image: %s", image_path)
+        raise
 
-    image_path = Path(image_path).resolve()
-
-    print(f"4. Resolved Image Path: {image_path}")
-
-    if not image_path.exists():
-        raise FileNotFoundError(image_path)
-
-    image = cv2.imread(str(image_path))
-
-    if image is None:
-        raise ValueError(f"Unable to load image: {image_path}")
-
-    print(f"5. Image Shape: {image.shape}")
-
-    reader = get_reader()
-
-    print("6. Calling readtext on numpy image...")
-
-    results = reader.readtext(
-        image,
-        detail=1,
-        paragraph=False,
-    )
-
-    print("7. OCR Finished")
-
-    print(results)
-
-    if not results:
-        return "", 0
-
-    extracted = []
+    words = []
     confidences = []
 
-    for _, text, confidence in results:
-        extracted.append(text)
-        confidences.append(confidence)
+    # image_to_data returns parallel lists.
+    # Confidence = -1 indicates non-text regions.
+    for text, conf in zip(data.get("text", []), data.get("conf", [])):
+        token = (text or "").strip()
 
-    average_confidence = int(
-        sum(confidences) / len(confidences) * 100
+        if not token:
+            continue
+
+        try:
+            conf_value = float(conf)
+        except (TypeError, ValueError):
+            continue
+
+        if conf_value < 0:
+            continue
+
+        words.append(token)
+        confidences.append(conf_value)
+
+    extracted_text = " ".join(words)
+
+    average_confidence = (
+        sum(confidences) / len(confidences)
+        if confidences
+        else 0.0
     )
 
-    return " ".join(extracted), average_confidence
+    logger.info(
+        "OCR extraction completed | words=%d | avg_confidence=%.2f",
+        len(words),
+        average_confidence,
+    )
+
+    logger.debug("Extracted OCR Text: %s", extracted_text)
+
+    return extracted_text, average_confidence
 
 
-def normalize_text(text: str) -> str:
+def calculate_match_score(expected, extracted):
     """
-    Normalize text before comparison.
-    """
-
-    text = text.upper().strip()
-
-    text = re.sub(r"[^A-Z0-9]", "", text)
-
-    return text
-
-
-def calculate_match_score(
-    expected: str,
-    extracted: str,
-) -> float:
-    """
-    Calculate similarity between expected
-    and extracted text.
+    Calculate similarity score between expected and extracted text.
 
     Returns:
-        float between 0 and 1
+        float: RapidFuzz token_sort_ratio score (0-100).
     """
 
-    expected = normalize_text(expected)
-    extracted = normalize_text(extracted)
+    score = fuzz.token_sort_ratio(
+        expected.lower(),
+        extracted.lower(),
+    )
 
-    score = fuzz.ratio(expected, extracted) / 100.0
-
-    print(f"11. Match Score: {score:.4f}")
+    logger.debug("OCR Match Score: %.2f", score)
 
     return score
 
 
-def is_text_match(
-    score: float,
-    threshold: float,
-) -> bool:
+def is_text_match(score, threshold):
     """
-    Determine whether OCR text matches expected text.
+    Determine whether OCR output satisfies the configured similarity threshold.
+
+    Args:
+        score (float):
+            Similarity score (0-100).
+
+        threshold (float):
+            Minimum score required for a successful match.
+
+    Returns:
+        bool
     """
 
     matched = score >= threshold
 
-    print(f"12. Text Matched: {matched}")
+    logger.debug(
+        "OCR Match Evaluation | score=%.2f | threshold=%s | matched=%s",
+        score,
+        threshold,
+        matched,
+    )
 
     return matched

@@ -6,5 +6,5 @@ numpy
 pillow
 imagehash
 dotenv
-easyocr
+pytesseract
 rapidfuzz

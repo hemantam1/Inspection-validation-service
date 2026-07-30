@@ -1,18 +1,31 @@
 # AI Inspection Validation Service
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
+![License](https://img.shields.io/badge/License-MIT-orange)
 
-> A modular AI validation microservice for inspection workflows built using FastAPI, Strategy Pattern, Factory Pattern, Repository Pattern, and SQLite persistence.
+> A modular AI-powered inspection validation microservice built with FastAPI using Strategy Pattern, Factory Pattern, Repository Pattern, SQLAlchemy ORM, and PostgreSQL persistence.
 
 ---
 
-## Overview
+# Overview
 
 AI Inspection Validation Service is a FastAPI-based microservice designed to validate inspection evidence submitted by an inspection platform.
 
-The service exposes REST APIs that route incoming validation requests to the appropriate validator and return a standardized JSON response.
+The service exposes REST APIs that intelligently route incoming validation requests to the appropriate validator and return a standardized JSON response.
 
-The architecture has been designed to be modular and extensible, allowing new validation types to be added with minimal changes to the overall system.
+The architecture is modular, extensible, and follows clean software engineering principles, allowing new AI validators to be added with minimal changes.
 
-In addition to executing validations, the service also persists validation results using SQLite through SQLAlchemy, making it possible to maintain validation history for auditing, reporting, and future analysis.
+In addition to performing validations, the service persists validation results using PostgreSQL through SQLAlchemy ORM, enabling audit history, reporting, and future analytics.
+
+Currently supported validations include:
+
+- Blur Validation
+- GPS Validation
+- Duplicate Image Detection
+- Timestamp Anomaly Detection
+- OCR Validation
+
+The repository also includes benchmark datasets and ready-to-use Swagger request collections for end-to-end API testing.
 
 ---
 
@@ -23,11 +36,12 @@ In addition to executing validations, the service also persists validation resul
 - Strategy Pattern for validator implementation
 - Factory Pattern for validator selection
 - Repository Pattern for database operations
-- SQLite persistence using SQLAlchemy ORM
+- PostgreSQL persistence using SQLAlchemy ORM
 - Validation history retrieval APIs
 - Standardized request and response models
 - Consistent JSON response contract
-- End-to-end API testing using Swagger UI
+- OCR validation using Tesseract OCR and RapidFuzz
+- End-to-end testing using Swagger UI
 
 ---
 
@@ -39,6 +53,7 @@ In addition to executing validations, the service also persists validation resul
 | GPS Validation | Haversine Distance | ✅ |
 | Duplicate Image Detection | Perceptual Hash (pHash) | ✅ |
 | Timestamp Anomaly Detection | Time Difference Analysis | ✅ |
+| OCR Validation | Tesseract OCR + RapidFuzz Similarity Matching | ✅ |
 
 ---
 
@@ -46,7 +61,7 @@ In addition to executing validations, the service also persists validation resul
 
 The service follows a layered architecture with Strategy Pattern, Factory Pattern, and Repository Pattern to keep validators independent, reusable, and easily extensible.
 
-```
+```text
                      Inspection Platform
                               │
                               ▼
@@ -61,11 +76,11 @@ The service follows a layered architecture with Strategy Pattern, Factory Patter
                               ▼
                      Validator Factory
                               │
-      ┌───────────────┬───────────────┬───────────────┬───────────────┐
-      ▼               ▼               ▼               ▼
- Blur Validator   GPS Validator  Duplicate Validator Timestamp Validator
-      │               │               │               │
-      └───────────────┴───────────────┴───────────────┘
+      ┌──────────┬──────────┬─────────────┬──────────────┬────────────┐
+      ▼          ▼          ▼             ▼              ▼
+ Blur Validator GPS Validator Duplicate Validator Timestamp Validator OCR Validator
+      │          │          │             │              │
+      └──────────┴──────────┴─────────────┴──────────────┘
                               │
                               ▼
                      ValidationResult
@@ -75,61 +90,40 @@ The service follows a layered architecture with Strategy Pattern, Factory Patter
      Validation Repository          Response Builder
                │                             │
                ▼                             ▼
-       SQLite Database          Standardized JSON Response
+       PostgreSQL Database         Standardized JSON Response
 ```
 
 ---
 
 # Validation Workflow
 
-```
+```text
 Inspection Platform
-
         │
-
         ▼
-
 POST /validate
-
         │
-
         ▼
-
 Validation Service
-
         │
-
         ▼
-
 Validator Factory
-
         │
-
         ▼
-
 Selected Validator
-
         │
-
         ▼
-
 ValidationResult
-
         │
-
-        ├──────────────► Validation Repository
-        │                       │
-        │                       ▼
-        │                SQLite Database
+        ├────────────► Validation Repository
+        │                    │
+        │                    ▼
+        │             PostgreSQL Database
         │
         ▼
-
 Response Builder
-
         │
-
         ▼
-
 ValidationResponse
 ```
 
@@ -137,7 +131,7 @@ ValidationResponse
 
 # Project Structure
 
-```
+```text
 inspection-validation-service/
 
 app/
@@ -176,6 +170,7 @@ app/
 │   ├── image_utils.py
 │   ├── gps_utils.py
 │   ├── hash_utils.py
+│   ├── ocr_utils.py
 │   └── datetime_utils.py
 │
 ├── validators/
@@ -183,11 +178,14 @@ app/
 │   ├── blur_validator.py
 │   ├── gps_validator.py
 │   ├── duplicate_validator.py
-│   └── timestamp_validator.py
+│   ├── timestamp_validator.py
+│   └── ocr_validator.py
 │
 └── main.py
 
 samples/
+├── blur_benchmark/
+
 tests/
 
 requirements.txt
@@ -200,7 +198,7 @@ README.md
 
 ## POST `/validate`
 
-Executes the requested validation and stores the validation result in the SQLite database.
+Executes the requested validation and persists the validation result in PostgreSQL using SQLAlchemy ORM.
 
 ### Example Response
 
@@ -220,13 +218,13 @@ Executes the requested validation and stores the validation result in the SQLite
 
 ## GET `/results`
 
-Returns the complete validation history stored in the database.
+Returns complete validation history.
 
 ---
 
 ## GET `/results/{jobId}`
 
-Returns the validation record associated with the specified Job ID.
+Returns validation history for a specific Job ID.
 
 ---
 
@@ -237,10 +235,10 @@ The project is built around the following software engineering principles:
 - Strategy Pattern
 - Factory Pattern
 - Repository Pattern
-- Single Responsibility Principle
-- Open/Closed Principle
-- Layered Architecture
+- Single Responsibility Principle (SRP)
+- Open/Closed Principle (OCP)
 - Separation of Concerns
+- Layered Architecture
 - Standardized API Contracts
 
 ---
@@ -251,11 +249,14 @@ The project is built around the following software engineering principles:
 - FastAPI
 - Pydantic
 - SQLAlchemy
-- SQLite
+- PostgreSQL
 - OpenCV
 - Pillow
 - NumPy
 - ImageHash
+- Tesseract OCR
+- pytesseract
+- RapidFuzz
 
 ---
 
@@ -291,19 +292,51 @@ Detects blurry inspection images using the Variance of Laplacian algorithm provi
 
 ## GPS Validation
 
-Calculates the distance between captured and registered GPS coordinates using the Haversine formula and verifies whether the capture occurred within the configured radius.
+Calculates the distance between captured and registered GPS coordinates using the Haversine formula and verifies whether the evidence was captured within the configured inspection radius.
 
 ---
 
 ## Duplicate Image Detection
 
-Detects duplicate inspection images using Perceptual Hashing (pHash) by comparing the captured image against previously submitted reference images.
+Uses Perceptual Hashing (pHash) to compare the submitted image against one or more reference images and detect duplicate submissions.
 
 ---
 
 ## Timestamp Anomaly Detection
 
-Identifies suspicious timestamps by validating chronological consistency between task start time, previous step completion time, and current evidence capture time.
+Detects suspicious timestamps by validating chronological consistency between task start time, previous step completion time, and current evidence capture time.
+
+---
+
+## OCR Validation
+
+Extracts text from inspection documents using Tesseract OCR and validates it against the expected text using RapidFuzz token-based similarity matching.
+
+The validator returns:
+
+- Extracted Text
+- OCR Confidence
+- Text Similarity Score
+- Match Result
+- Fraud Risk Flags (if mismatch detected)
+
+---
+
+# Testing
+
+The repository contains ready-to-use Swagger request collections inside the `swagger_requests/` directory.
+
+These requests can be directly copied into the FastAPI Swagger UI for end-to-end testing.
+
+Available request collections:
+
+- OCR Validation
+- Blur Validation
+- GPS Validation
+- Duplicate Image Validation
+- Timestamp Validation
+
+The repository also includes benchmark datasets used to validate OCR and Blur modules during development.
 
 ---
 
@@ -311,36 +344,36 @@ Identifies suspicious timestamps by validating chronological consistency between
 
 - ✅ Modular validation architecture completed
 - ✅ FastAPI REST API implemented
-- ✅ Request and Response models implemented
 - ✅ Validator Factory implemented
 - ✅ Validation Service implemented
 - ✅ Response Builder implemented
 - ✅ Repository Pattern implemented
-- ✅ SQLite persistence using SQLAlchemy
-- ✅ Validation history retrieval APIs implemented
-- ✅ Blur Validator implemented and tested
+- ✅ PostgreSQL persistence using SQLAlchemy
+- ✅ Validation history APIs implemented
+- ✅ Blur Validator implemented and benchmark tested
 - ✅ GPS Validator implemented and tested
 - ✅ Duplicate Image Validator implemented and tested
 - ✅ Timestamp Validator implemented and tested
-- ✅ End-to-end testing completed using Swagger
-- ✅ Validation results persisted and retrieved using SQLite
+- ✅ OCR Validator implemented
+- ✅ End-to-end testing completed
 
 ---
 
 # Future Enhancements
 
-The current architecture allows additional validators and storage backends to be introduced with minimal changes.
+The architecture is designed to support additional validators with minimal changes.
 
-Possible extensions include:
+Possible future extensions include:
 
-- OCR Validation
+- Multi-language OCR Support
 - Face Match Validation
 - Liveness Detection
 - Image Tampering Detection
 - EXIF Metadata Validation
-- PostgreSQL / MySQL support
+- Support for additional relational databases (e.g., MySQL)
 - Authentication & Authorization
 - Validation Dashboard
+- Cloud Storage Integration
 
 ---
 
