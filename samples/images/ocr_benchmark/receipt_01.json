@@ -1,0 +1,8 @@
+{
+  "expectedText": "PAYMENT RECEIPT Receipt No: RC-88231 Date: 29-Jul-2026 Paid By: John Smith Amount: INR 2500.00 Mode: UPI Reference Code: OCRTEST2026",
+  "expectedMatchScore": 90.8,
+  "expectedTextMatched": true,
+  "notes": "Clean narrow payment receipt. [measured: OCR conf 91, token_sort_ratio 90.8]",
+  "category": "perfect-quality",
+  "difficulty": "easy"
+}

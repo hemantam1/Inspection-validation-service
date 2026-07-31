@@ -1,0 +1,643 @@
+// ===== 01_bank_baroda_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-01_bank_baroda_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-01_bank_baroda_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/01_bank_baroda_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 74550,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-01_bank_baroda_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 02_bank_baroda_slight.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-02_bank_baroda_slight",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-02_bank_baroda_slight",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/02_bank_baroda_slight.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 50228,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-02_bank_baroda_slight",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 03_bank_baroda_moderate.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-03_bank_baroda_moderate",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-03_bank_baroda_moderate",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/03_bank_baroda_moderate.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 36131,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-03_bank_baroda_moderate",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 04_bank_baroda_heavy.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-04_bank_baroda_heavy",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-04_bank_baroda_heavy",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/04_bank_baroda_heavy.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 27139,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-04_bank_baroda_heavy",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 05_bank_boa_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-05_bank_boa_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-05_bank_boa_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/05_bank_boa_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 85891,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-05_bank_boa_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 06_bank_boa_slight.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-06_bank_boa_slight",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-06_bank_boa_slight",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/06_bank_boa_slight.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 58985,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-06_bank_boa_slight",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 07_bank_boa_moderate.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-07_bank_boa_moderate",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-07_bank_boa_moderate",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/07_bank_boa_moderate.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 41988,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-07_bank_boa_moderate",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 08_tree_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-08_tree_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-08_tree_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/08_tree_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 146109,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-08_tree_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 09_tree_heavy.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-09_tree_heavy",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-09_tree_heavy",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/09_tree_heavy.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 55233,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-09_tree_heavy",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 10_document_text_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-10_document_text_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-10_document_text_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/10_document_text_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 190343,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-10_document_text_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 11_document_text_slight.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-11_document_text_slight",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-11_document_text_slight",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/11_document_text_slight.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 109259,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-11_document_text_slight",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 12_document_text_moderate.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-12_document_text_moderate",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-12_document_text_moderate",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/12_document_text_moderate.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 71117,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-12_document_text_moderate",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 13_document_text_heavy.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-13_document_text_heavy",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-13_document_text_heavy",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/13_document_text_heavy.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 50432,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-13_document_text_heavy",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 14_document_form_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-14_document_form_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-14_document_form_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/14_document_form_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 73586,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-14_document_form_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 15_document_form_moderate.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-15_document_form_moderate",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-15_document_form_moderate",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/15_document_form_moderate.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 41738,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-15_document_form_moderate",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 16_serial_plate_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-16_serial_plate_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-16_serial_plate_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/16_serial_plate_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 210014,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-16_serial_plate_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 17_serial_plate_slight.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-17_serial_plate_slight",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-17_serial_plate_slight",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/17_serial_plate_slight.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 82600,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-17_serial_plate_slight",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 18_serial_plate_heavy.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-18_serial_plate_heavy",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-18_serial_plate_heavy",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/18_serial_plate_heavy.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 37493,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-18_serial_plate_heavy",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 19_test_tree_sharp.jpg  (expected: SHARP (not blurry)) =====
+{
+  "jobId": "blur-19_test_tree_sharp",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-19_test_tree_sharp",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/19_test_tree_sharp.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 119893,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-19_test_tree_sharp",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 20_test_orange_blur.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-20_test_orange_blur",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-20_test_orange_blur",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/20_test_orange_blur.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 4483,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-20_test_orange_blur",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 21_test_buildings_blur.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-21_test_buildings_blur",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-21_test_buildings_blur",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/21_test_buildings_blur.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 6911,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-21_test_buildings_blur",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 22_test_hall_blur.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-22_test_hall_blur",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-22_test_hall_blur",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/22_test_hall_blur.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 7041,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-22_test_hall_blur",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== 23_test_traffic_blur.jpg  (expected: BLURRY) =====
+{
+  "jobId": "blur-23_test_traffic_blur",
+  "jobType": "BLUR_CHECK",
+  "evidence": {
+    "evidenceId": "ev-23_test_traffic_blur",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/blur_benchmark/23_test_traffic_blur.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 11428,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-23_test_traffic_blur",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}

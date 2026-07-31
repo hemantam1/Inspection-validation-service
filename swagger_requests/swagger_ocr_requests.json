@@ -1,0 +1,730 @@
+[
+  {
+    "jobId": "ocr-bench-blank_page_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-blank_page_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/blank_page_01.png",
+      "mimeType": "image/png",
+      "fileSize": 1177411,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-blank_page_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-different_language_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-different_language_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/different_language_01.png",
+      "mimeType": "image/png",
+      "fileSize": 44662,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-different_language_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-form_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-form_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/form_01.png",
+      "mimeType": "image/png",
+      "fileSize": 46715,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-form_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "KYC VERIFICATION FORM Full Name: Rakesh Kumar PAN: ABCDE4587L Vehicle ID: MH12AB1234 Inspector: John Smith Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-handwritten_note_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-handwritten_note_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/handwritten_note_01.png",
+      "mimeType": "image/png",
+      "fileSize": 70558,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-handwritten_note_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "Vehicle ID MH12AB1234 Engine No EN987654321 Inspector John Smith Status APPROVED",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-id_card_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-id_card_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/id_card_01.png",
+      "mimeType": "image/png",
+      "fileSize": 40662,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-id_card_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "FIELD INSPECTOR ID CARD Name: John Smith Inspector ID: EMP-1183 Department: Asset Verification Valid Till: 31-Dec-2026 Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_01.png",
+      "mimeType": "image/png",
+      "fileSize": 54490,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_02",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_02",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_02.png",
+      "mimeType": "image/png",
+      "fileSize": 51481,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_02",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: KA05CJ7890 Engine No: EN112233445 Chassis No: CH556677889 Inspector: Priya Nair Inspection Date: 12-Aug-2026 Status: REJECTED Reference Code: REF99887766",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_blur_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_blur_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_blur_01.png",
+      "mimeType": "image/png",
+      "fileSize": 109207,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_blur_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_cropped_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_cropped_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_cropped_01.png",
+      "mimeType": "image/png",
+      "fileSize": 33284,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_cropped_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_folded_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_folded_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_folded_01.png",
+      "mimeType": "image/png",
+      "fileSize": 54294,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_folded_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_jpeg_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_jpeg_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_jpeg_01.png",
+      "mimeType": "image/png",
+      "fileSize": 167601,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_jpeg_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_lowcontrast_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_lowcontrast_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_lowcontrast_01.png",
+      "mimeType": "image/png",
+      "fileSize": 50688,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_lowcontrast_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_perspective_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_perspective_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_perspective_01.png",
+      "mimeType": "image/png",
+      "fileSize": 92992,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_perspective_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_rotated90_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_rotated90_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_rotated90_01.png",
+      "mimeType": "image/png",
+      "fileSize": 62275,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_rotated90_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_shadow_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_shadow_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_shadow_01.png",
+      "mimeType": "image/png",
+      "fileSize": 96136,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_shadow_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-inspection_report_skew_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-inspection_report_skew_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/inspection_report_skew_01.png",
+      "mimeType": "image/png",
+      "fileSize": 133400,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-inspection_report_skew_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-invoice_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-invoice_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/invoice_01.png",
+      "mimeType": "image/png",
+      "fileSize": 52989,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-invoice_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "TAX INVOICE Invoice No: INV-2026-0442 Date: 29-Jul-2026 Vendor: Sharma Auto Works GSTIN: 24ABCDE1234F1Z5 Item: Vehicle Inspection Service Amount: INR 2500.00 Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-mixed_font_sizes_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-mixed_font_sizes_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/mixed_font_sizes_01.png",
+      "mimeType": "image/png",
+      "fileSize": 58057,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-mixed_font_sizes_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-multiline_table_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-multiline_table_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/multiline_table_01.png",
+      "mimeType": "image/png",
+      "fileSize": 39186,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-multiline_table_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION CHECKLIST Item Result Ref Engine OK EN987654321 Chassis OK CH123456789 Brakes PASS BR-01 Lights PASS LT-02 Status APPROVED OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-qr_code_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-qr_code_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/qr_code_01.png",
+      "mimeType": "image/png",
+      "fileSize": 14110,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-qr_code_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-random_no_text_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-random_no_text_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/random_no_text_01.png",
+      "mimeType": "image/png",
+      "fileSize": 126235,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-random_no_text_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-receipt_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-receipt_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/receipt_01.png",
+      "mimeType": "image/png",
+      "fileSize": 37488,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-receipt_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "PAYMENT RECEIPT Receipt No: RC-88231 Date: 29-Jul-2026 Paid By: John Smith Amount: INR 2500.00 Mode: UPI Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-receipt_noisy_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-receipt_noisy_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/receipt_noisy_01.png",
+      "mimeType": "image/png",
+      "fileSize": 1099155,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-receipt_noisy_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "PAYMENT RECEIPT Receipt No: RC-88231 Date: 29-Jul-2026 Paid By: John Smith Amount: INR 2500.00 Mode: UPI Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-symbols_only_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-symbols_only_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/symbols_only_01.png",
+      "mimeType": "image/png",
+      "fileSize": 56566,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-symbols_only_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-tiny_font_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-tiny_font_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/tiny_font_01.png",
+      "mimeType": "image/png",
+      "fileSize": 22857,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-tiny_font_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-watermark_over_text_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-watermark_over_text_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/watermark_over_text_01.png",
+      "mimeType": "image/png",
+      "fileSize": 99896,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-watermark_over_text_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-wrong_document_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-wrong_document_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/wrong_document_01.png",
+      "mimeType": "image/png",
+      "fileSize": 51481,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-wrong_document_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  },
+  {
+    "jobId": "ocr-bench-wrong_reference_code_01",
+    "jobType": "OCR_CHECK",
+    "evidence": {
+      "evidenceId": "ev-wrong_reference_code_01",
+      "evidenceType": "DOCUMENT",
+      "fileUrl": "./samples/images/ocr_benchmark/wrong_reference_code_01.png",
+      "mimeType": "image/png",
+      "fileSize": 51612,
+      "capturedAt": "2026-07-29T09:00:00Z",
+      "latitude": 23.0225,
+      "longitude": 72.5714,
+      "gpsAccuracyM": 5.0
+    },
+    "context": {
+      "taskId": "task-wrong_reference_code_01",
+      "questionId": "q-ocr-verify",
+      "registeredLocation": null,
+      "referenceEvidenceUrls": [],
+      "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+      "priorStepCapturedAt": null,
+      "taskStartedAt": "2026-07-29T08:59:00Z",
+      "inspectionAreaType": "OFFICE"
+    },
+    "requestJson": {}
+  }
+]

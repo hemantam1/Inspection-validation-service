@@ -1,0 +1,8 @@
+{
+  "expectedText": "FIELD INSPECTOR ID CARD Name: John Smith Inspector ID: EMP-1183 Department: Asset Verification Valid Till: 31-Dec-2026 Reference Code: OCRTEST2026",
+  "expectedMatchScore": 100.0,
+  "expectedTextMatched": true,
+  "notes": "Clean ID card. [measured: OCR conf 95, token_sort_ratio 100.0]",
+  "category": "perfect-quality",
+  "difficulty": "easy"
+}

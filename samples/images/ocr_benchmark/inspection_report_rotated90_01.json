@@ -1,0 +1,8 @@
+{
+  "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+  "expectedMatchScore": 23.3,
+  "expectedTextMatched": false,
+  "notes": "Rotated 90 degrees; OCR (psm 6) expected to fail without orientation detection. [measured: OCR conf 54, token_sort_ratio 23.3]",
+  "category": "difficult",
+  "difficulty": "hard"
+}

@@ -1,0 +1,8 @@
+{
+  "expectedText": "TAX INVOICE Invoice No: INV-2026-0442 Date: 29-Jul-2026 Vendor: Sharma Auto Works GSTIN: 24ABCDE1234F1Z5 Item: Vehicle Inspection Service Amount: INR 2500.00 Reference Code: OCRTEST2026",
+  "expectedMatchScore": 93.8,
+  "expectedTextMatched": true,
+  "notes": "Clean tax invoice. [measured: OCR conf 90, token_sort_ratio 93.8]",
+  "category": "perfect-quality",
+  "difficulty": "easy"
+}

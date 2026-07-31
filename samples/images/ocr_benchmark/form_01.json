@@ -1,0 +1,8 @@
+{
+  "expectedText": "KYC VERIFICATION FORM Full Name: Rakesh Kumar PAN: ABCDE4587L Vehicle ID: MH12AB1234 Inspector: John Smith Status: APPROVED Reference Code: OCRTEST2026",
+  "expectedMatchScore": 100.0,
+  "expectedTextMatched": true,
+  "notes": "Clean KYC form. [measured: OCR conf 95, token_sort_ratio 100.0]",
+  "category": "perfect-quality",
+  "difficulty": "easy"
+}

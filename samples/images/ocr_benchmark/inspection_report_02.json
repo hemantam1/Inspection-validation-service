@@ -1,0 +1,8 @@
+{
+  "expectedText": "INSPECTION REPORT Vehicle ID: KA05CJ7890 Engine No: EN112233445 Chassis No: CH556677889 Inspector: Priya Nair Inspection Date: 12-Aug-2026 Status: REJECTED Reference Code: REF99887766",
+  "expectedMatchScore": 100.0,
+  "expectedTextMatched": true,
+  "notes": "Second clean inspection report (different vehicle). [measured: OCR conf 94, token_sort_ratio 100.0]",
+  "category": "perfect-quality",
+  "difficulty": "easy"
+}

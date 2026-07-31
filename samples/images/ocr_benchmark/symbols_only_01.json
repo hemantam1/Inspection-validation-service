@@ -1,0 +1,8 @@
+{
+  "expectedText": "INSPECTION REPORT Vehicle ID: MH12AB1234 Engine No: EN987654321 Chassis No: CH123456789 Inspector: John Smith Inspection Date: 29-Jul-2026 Status: APPROVED Reference Code: OCRTEST2026",
+  "expectedMatchScore": 18.0,
+  "expectedTextMatched": false,
+  "notes": "Only symbols/punctuation; expectedText is V1 report -> must NOT match. [measured: OCR conf 23, token_sort_ratio 18.0]",
+  "category": "negative",
+  "difficulty": "hard"
+}

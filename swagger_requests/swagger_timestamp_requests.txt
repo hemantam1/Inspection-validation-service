@@ -1,0 +1,27 @@
+// ===== timestamp-job-0004  (source: task-spec sample job-0004; capturedAt 09:00:03Z, priorStep 09:00:01Z (2s gap < 10s), taskStarted 09:00:00Z -> anomalyDetected=true, FAST_SUBMISSION) =====
+{
+  "jobId": "timestamp-job-0004",
+  "jobType": "TIMESTAMP_ANOMALY_CHECK",
+  "evidence": {
+    "evidenceId": "ev-004",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/current.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 53852,
+    "capturedAt": "2026-07-10T09:00:03Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-126",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": "2026-07-10T09:00:01Z",
+    "taskStartedAt": "2026-07-10T09:00:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}

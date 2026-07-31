@@ -1,0 +1,30 @@
+// ===== gps-job-0002  (source: task-spec sample job-0002; radiusMeters 200 mapped to inspectionAreaType=WAREHOUSE [AREA_RADIUS 200m]; evidence ~1042m from registered -> withinRadius=false, GPS_MISMATCH) =====
+{
+  "jobId": "gps-job-0002",
+  "jobType": "GPS_CHECK",
+  "evidence": {
+    "evidenceId": "ev-002",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/current.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 53852,
+    "capturedAt": "2026-07-10T09:20:05Z",
+    "latitude": 23.03,
+    "longitude": 72.58,
+    "gpsAccuracyM": 12.0
+  },
+  "context": {
+    "taskId": "task-124",
+    "questionId": "q-verify",
+    "registeredLocation": {
+      "latitude": 23.0227,
+      "longitude": 72.5716
+    },
+    "referenceEvidenceUrls": [],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-10T09:19:00Z",
+    "inspectionAreaType": "WAREHOUSE"
+  },
+  "requestJson": {}
+}

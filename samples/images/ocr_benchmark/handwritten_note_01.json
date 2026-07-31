@@ -1,0 +1,8 @@
+{
+  "expectedText": "Vehicle ID MH12AB1234 Engine No EN987654321 Inspector John Smith Status APPROVED",
+  "expectedMatchScore": 100.0,
+  "expectedTextMatched": true,
+  "notes": "Synthetic pseudo-handwriting proxy: slanted (oblique) print with per-word rotation/jitter. NOTE: this is still rendered glyphs, so Tesseract reads it cleanly (matched). It does NOT represent true cursive handwriting, which would score far lower — treat this as a slant/jitter robustness case, not a real handwriting test. [measured: OCR conf 83, token_sort_ratio 100.0]",
+  "category": "edge-case",
+  "difficulty": "medium"
+}

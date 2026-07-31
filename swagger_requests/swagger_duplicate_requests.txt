@@ -1,0 +1,90 @@
+// ===== dup-true-same  (DUPLICATE expected (reference_same.jpg is identical to current.jpg)) =====
+{
+  "jobId": "dup-true-same",
+  "jobType": "DUPLICATE_CHECK",
+  "evidence": {
+    "evidenceId": "ev-dup-true-same",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/current.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 53852,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-dup-true-same",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [
+      "./samples/images/reference_same.jpg"
+    ],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== dup-not-different  (NOT duplicate (reference_different.jpg is a different branch photo)) =====
+{
+  "jobId": "dup-not-different",
+  "jobType": "DUPLICATE_CHECK",
+  "evidence": {
+    "evidenceId": "ev-dup-not-different",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/current.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 53852,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-dup-not-different",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [
+      "./samples/images/reference_different.jpg"
+    ],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}
+
+// ===== dup-mixed-refs  (DUPLICATE expected (best match = reference_same.jpg)) =====
+{
+  "jobId": "dup-mixed-refs",
+  "jobType": "DUPLICATE_CHECK",
+  "evidence": {
+    "evidenceId": "ev-dup-mixed-refs",
+    "evidenceType": "PHOTO",
+    "fileUrl": "./samples/images/current.jpg",
+    "mimeType": "image/jpeg",
+    "fileSize": 53852,
+    "capturedAt": "2026-07-29T09:00:00Z",
+    "latitude": 23.0225,
+    "longitude": 72.5714,
+    "gpsAccuracyM": 5.0
+  },
+  "context": {
+    "taskId": "task-dup-mixed-refs",
+    "questionId": "q-verify",
+    "registeredLocation": null,
+    "referenceEvidenceUrls": [
+      "./samples/images/reference_same.jpg",
+      "./samples/images/reference_different.jpg"
+    ],
+    "expectedText": null,
+    "priorStepCapturedAt": null,
+    "taskStartedAt": "2026-07-29T08:59:00Z",
+    "inspectionAreaType": "OFFICE"
+  },
+  "requestJson": {}
+}

@@ -1,0 +1,513 @@
+{
+  "generatedAt": "2026-07-30T10:51:30.408594+00:00",
+  "totalSamples": 28,
+  "passed": 28,
+  "failed": 0,
+  "accuracy": 100.0,
+  "averageOcrConfidence": 78.2,
+  "averageMatchScore": 76.61,
+  "falsePositives": [],
+  "falseNegatives": [],
+  "categoryAccuracy": {
+    "difficult": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "edge-case": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "negative": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "perfect-quality": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "slightly-noisy": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "accuracy": 100.0
+    }
+  },
+  "difficultyAccuracy": {
+    "easy": {
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "hard": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "accuracy": 100.0
+    },
+    "medium": {
+      "total": 11,
+      "passed": 11,
+      "failed": 0,
+      "accuracy": 100.0
+    }
+  },
+  "worst5": [
+    {
+      "name": "qr_code_01",
+      "status": "TN",
+      "passed": true,
+      "expectedScore": 30.7,
+      "actualScore": 29.21,
+      "deviation": 1.49
+    },
+    {
+      "name": "blank_page_01",
+      "status": "TN",
+      "passed": true,
+      "expectedScore": 17.1,
+      "actualScore": 17.5,
+      "deviation": 0.4
+    },
+    {
+      "name": "inspection_report_rotated90_01",
+      "status": "TN",
+      "passed": true,
+      "expectedScore": 23.3,
+      "actualScore": 23.68,
+      "deviation": 0.38
+    },
+    {
+      "name": "inspection_report_folded_01",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 93.9,
+      "actualScore": 93.65,
+      "deviation": 0.25
+    },
+    {
+      "name": "symbols_only_01",
+      "status": "TN",
+      "passed": true,
+      "expectedScore": 18.0,
+      "actualScore": 17.88,
+      "deviation": 0.12
+    }
+  ],
+  "best5": [
+    {
+      "name": "form_01",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "deviation": 0.0
+    },
+    {
+      "name": "handwritten_note_01",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "deviation": 0.0
+    },
+    {
+      "name": "id_card_01",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "deviation": 0.0
+    },
+    {
+      "name": "inspection_report_01",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "deviation": 0.0
+    },
+    {
+      "name": "inspection_report_02",
+      "status": "TP",
+      "passed": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "deviation": 0.0
+    }
+  ],
+  "samples": [
+    {
+      "name": "blank_page_01",
+      "category": "edge-case",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 17.1,
+      "actualScore": 17.5,
+      "ocrConfidence": 6.4,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "different_language_01",
+      "category": "negative",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 49.7,
+      "actualScore": 49.69,
+      "ocrConfidence": 91.93,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "form_01",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 95.0,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "handwritten_note_01",
+      "category": "edge-case",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 82.91,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "id_card_01",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 94.79,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_01",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 94.09,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_02",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 93.82,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_blur_01",
+      "category": "slightly-noisy",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 94.77,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_cropped_01",
+      "category": "difficult",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 74.7,
+      "actualScore": 74.66,
+      "ocrConfidence": 94.86,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_folded_01",
+      "category": "difficult",
+      "difficulty": "hard",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 93.9,
+      "actualScore": 93.65,
+      "ocrConfidence": 76.92,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_jpeg_01",
+      "category": "slightly-noisy",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 94.95,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_lowcontrast_01",
+      "category": "slightly-noisy",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 94.41,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_perspective_01",
+      "category": "difficult",
+      "difficulty": "hard",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 98.1,
+      "actualScore": 98.12,
+      "ocrConfidence": 84.12,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_rotated90_01",
+      "category": "difficult",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 23.3,
+      "actualScore": 23.68,
+      "ocrConfidence": 54.18,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_shadow_01",
+      "category": "slightly-noisy",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 95.0,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "inspection_report_skew_01",
+      "category": "difficult",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 84.6,
+      "actualScore": 84.62,
+      "ocrConfidence": 75.48,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "invoice_01",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 93.8,
+      "actualScore": 93.83,
+      "ocrConfidence": 89.77,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "mixed_font_sizes_01",
+      "category": "edge-case",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 95.05,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "multiline_table_01",
+      "category": "edge-case",
+      "difficulty": "medium",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 34.1,
+      "actualScore": 34.09,
+      "ocrConfidence": 57.6,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "qr_code_01",
+      "category": "negative",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 30.7,
+      "actualScore": 29.21,
+      "ocrConfidence": 53.0,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "random_no_text_01",
+      "category": "edge-case",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 0.0,
+      "actualScore": 0.0,
+      "ocrConfidence": 0.0,
+      "status": "TN",
+      "passed": true,
+      "validatorError": "OCR_VALIDATION_ERROR"
+    },
+    {
+      "name": "receipt_01",
+      "category": "perfect-quality",
+      "difficulty": "easy",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 90.8,
+      "actualScore": 90.77,
+      "ocrConfidence": 91.33,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "receipt_noisy_01",
+      "category": "slightly-noisy",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 90.8,
+      "actualScore": 90.77,
+      "ocrConfidence": 93.67,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "symbols_only_01",
+      "category": "negative",
+      "difficulty": "hard",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 18.0,
+      "actualScore": 17.88,
+      "ocrConfidence": 23.13,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "tiny_font_01",
+      "category": "edge-case",
+      "difficulty": "hard",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 93.4,
+      "actualScore": 93.44,
+      "ocrConfidence": 84.77,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "watermark_over_text_01",
+      "category": "edge-case",
+      "difficulty": "medium",
+      "expectedMatched": true,
+      "actualMatched": true,
+      "expectedScore": 100.0,
+      "actualScore": 100.0,
+      "ocrConfidence": 93.95,
+      "status": "TP",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "wrong_document_01",
+      "category": "negative",
+      "difficulty": "medium",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 72.7,
+      "actualScore": 72.68,
+      "ocrConfidence": 93.82,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    },
+    {
+      "name": "wrong_reference_code_01",
+      "category": "negative",
+      "difficulty": "medium",
+      "expectedMatched": false,
+      "actualMatched": false,
+      "expectedScore": 80.4,
+      "actualScore": 80.43,
+      "ocrConfidence": 89.74,
+      "status": "TN",
+      "passed": true,
+      "validatorError": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "expectedText": "INSPECTION CHECKLIST Item Result Ref Engine OK EN987654321 Chassis OK CH123456789 Brakes PASS BR-01 Lights PASS LT-02 Status APPROVED OCRTEST2026",
+  "expectedMatchScore": 34.1,
+  "expectedTextMatched": false,
+  "notes": "Multiline table with rows and columns. [measured: OCR conf 58, token_sort_ratio 34.1]",
+  "category": "edge-case",
+  "difficulty": "medium"
+}
