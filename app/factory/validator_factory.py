@@ -5,6 +5,9 @@ from app.validators.gps_validator import GPSValidator
 from app.validators.duplicate_validator import DuplicateValidator
 from app.validators.timestamp_validator import TimestampValidator
 from app.validators.ocr_validator import OCRValidator
+from app.validators.document_authenticity_validator import (
+    DocumentAuthenticityValidator,
+)
 
 class ValidatorFactory:
 
@@ -13,7 +16,10 @@ class ValidatorFactory:
         JobType.GPS_CHECK: GPSValidator,
         JobType.DUPLICATE_CHECK: DuplicateValidator,
         JobType.TIMESTAMP_ANOMALY_CHECK: TimestampValidator,
-        JobType.OCR_CHECK: OCRValidator
+        JobType.OCR_CHECK: OCRValidator,
+        JobType.DOCUMENT_AUTHENTICITY_CHECK:(
+            DocumentAuthenticityValidator
+        ),
     }
 
     @classmethod

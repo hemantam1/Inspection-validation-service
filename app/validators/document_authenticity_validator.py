@@ -1,0 +1,178 @@
+from app.core.constants import (
+    DOCUMENT_AUTHENTICITY_RISK_SCORE,
+    ELA_THRESHOLD,
+)
+from app.core.logger import get_logger
+from app.models.enums import (
+    EvidenceType,
+    RiskEventType,
+    RiskSeverity,
+)
+from app.models.request import ValidationRequest
+from app.models.response import (
+    ErrorInfo,
+    RiskFlag,
+)
+from app.models.validation_result import ValidationResult
+from app.utils.authenticity_utils import (
+    calculate_authenticity_score,
+    perform_ela,
+)
+from app.validators.base_validator import BaseValidator
+
+logger = get_logger(__name__)
+
+
+class DocumentAuthenticityValidator(BaseValidator):
+
+    def validate(
+        self,
+        request: ValidationRequest,
+    ) -> ValidationResult:
+
+        logger.info(
+            "Document Authenticity validation started"
+        )
+
+        try:
+
+            logger.debug(
+                "Evidence type: %s",
+                request.evidence.evidenceType,
+            )
+
+            if request.evidence.evidenceType not in (
+                EvidenceType.PHOTO,
+                EvidenceType.DOCUMENT,
+            ):
+
+                logger.warning(
+                    "Unsupported evidence type: %s",
+                    request.evidence.evidenceType,
+                )
+
+                return ValidationResult(
+                    confidenceScore=0,
+                    result={},
+                    riskFlags=[],
+                    error=ErrorInfo(
+                        code="INVALID_EVIDENCE_TYPE",
+                        message=(
+                            "Document Authenticity validation "
+                            "supports PHOTO and DOCUMENT "
+                            "evidence only."
+                        ),
+                    ),
+                )
+
+            logger.info(
+                "Running ELA on image: %s",
+                request.evidence.fileUrl,
+            )
+
+            ela_mean, ela_max = perform_ela(
+                request.evidence.fileUrl,
+            )
+
+            authenticity_score = (
+                calculate_authenticity_score(
+                    ela_mean,
+                    ela_max,
+                )
+            )
+
+            tampering_detected = (
+                ela_mean >= ELA_THRESHOLD
+            )
+
+            logger.info(
+                (
+                    "ELA Result | "
+                    "mean=%.2f | "
+                    "max=%.2f | "
+                    "threshold=%.2f | "
+                    "tampered=%s"
+                ),
+                ela_mean,
+                ela_max,
+                ELA_THRESHOLD,
+                tampering_detected,
+            )
+
+            risk_flags = []
+
+            if tampering_detected:
+
+                logger.warning(
+                    "Possible document tampering detected."
+                )
+
+                risk_flags.append(
+                    RiskFlag(
+                        riskEventType=(
+                            RiskEventType.DOCUMENT_FRAUD
+                        ),
+                        severity=RiskSeverity.MEDIUM,
+                        score=DOCUMENT_AUTHENTICITY_RISK_SCORE,
+                        reason=(
+                            "Possible image tampering "
+                            "detected using Error Level "
+                            "Analysis."
+                        ),
+                    )
+                )
+
+            logger.info(
+                "Document Authenticity validation completed."
+            )
+
+            return ValidationResult(
+                confidenceScore=authenticity_score,
+                result={
+                    "isAuthentic": (
+                        not tampering_detected
+                    ),
+                    "tamperingSuspected": (
+                        tampering_detected
+                    ),
+                    "authenticityScore": (
+                        authenticity_score
+                    ),
+                    "elaMeanScore": round(
+                        ela_mean,
+                        2,
+                    ),
+                    "elaMaxScore": round(
+                        ela_max,
+                        2,
+                    ),
+                    "threshold": ELA_THRESHOLD,
+                    "method": "ELA",
+                },
+                riskFlags=risk_flags,
+                error=None,
+            )
+
+        except Exception as e:
+
+            logger.exception(
+                (
+                    "Document Authenticity "
+                    "validation failed: %s"
+                ),
+                str(e),
+            )
+
+            return ValidationResult(
+                confidenceScore=0,
+                result={},
+                riskFlags=[],
+                error=ErrorInfo(
+                    code="DOCUMENT_AUTHENTICITY_ERROR",
+                    message=(
+                        "Failed to perform document "
+                        "authenticity validation."
+                    ),
+                    details=str(e),
+                ),
+            )

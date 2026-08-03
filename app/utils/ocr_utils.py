@@ -22,7 +22,13 @@ def extract_text(image_path):
     logger.info("OCR extraction started | image=%s", image_path)
 
     try:
-        image = Image.open(image_path)
+        with Image.open(image_path) as image:
+            data = pytesseract.image_to_data(
+                image,
+                lang=_TESSERACT_LANG,
+                config=_TESSERACT_CONFIG,
+                output_type=Output.DICT,
+            )
     except FileNotFoundError:
         logger.error("OCR image not found: %s", image_path)
         raise

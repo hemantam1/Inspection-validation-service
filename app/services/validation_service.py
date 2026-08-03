@@ -3,6 +3,7 @@ from app.factory.validator_factory import ValidatorFactory
 from app.models.request import ValidationRequest
 from app.models.response import ValidationResponse
 from app.repositories.validation_repository import ValidationRepository
+from app.models.enums import JobStatus
 
 
 class ValidationService:
@@ -26,9 +27,16 @@ class ValidationService:
             result=result,
         )
 
+        status = (
+            JobStatus.COMPLETED
+            if result.error is None
+            else JobStatus.FAILED
+        )
+
         response = ResponseBuilder.build(
             request=request,
             result=result,
+            status=status,
         )
 
         return response

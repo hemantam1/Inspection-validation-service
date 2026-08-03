@@ -115,10 +115,7 @@ class OCRValidator(BaseValidator):
                             reason="Unable to detect text from the image.",
                         )
                     ],
-                    error=ErrorInfo(
-                        code="OCR_VALIDATION_ERROR",
-                        message="No text could be extracted.",
-                    ),
+                    error=None,
                 )
 
             match_score = calculate_match_score(
