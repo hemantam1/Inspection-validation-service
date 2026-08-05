@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "edited_date",
+  "originalImage": "inspection_report_original.jpg",
+  "modification": "Changed inspection date from 29-Jul-2026 to 05-Aug-2026",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

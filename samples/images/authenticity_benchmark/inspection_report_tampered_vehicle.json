@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "modified_vehicle_number",
+  "originalImage": "inspection_report_original.jpg",
+  "modification": "Changed Vehicle ID from MH12AB1234 to MH12ZX9999",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

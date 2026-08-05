@@ -1,0 +1,7 @@
+{
+  "category": "authentic",
+  "documentType": "bank_statement",
+  "modification": null,
+  "expectedTamperingSuspected": false,
+  "expectedRiskFlag": null
+}

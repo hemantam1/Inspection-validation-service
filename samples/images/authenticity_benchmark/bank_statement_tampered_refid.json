@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "edited_reference_id",
+  "originalImage": "bank_statement_original.jpg",
+  "modification": "Changed Reference ID from TXN20260731 to TXN20260899",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

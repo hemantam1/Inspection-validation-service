@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "replaced_signature",
+  "originalImage": "kyc_form_original.jpg",
+  "modification": "Replaced the signature with a different scribble",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

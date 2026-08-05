@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-08-03T13:13:32.318430+00:00",
+  "elaThreshold": 15.0,
+  "totalImages": 17,
+  "authentic": 5,
+  "tampered": 12,
+  "calibration": {
+    "authenticLocalizedMax": 6.07,
+    "authenticLocalizedRange": [
+      1.83,
+      6.07
+    ],
+    "tamperedAboveAuthenticMax": [],
+    "tamperedBelowAuthenticMax": [
+      "bank_statement_tampered_recompress",
+      "bank_statement_tampered_refid",
+      "inspection_report_tampered_date",
+      "inspection_report_tampered_inspector",
+      "inspection_report_tampered_status",
+      "inspection_report_tampered_vehicle",
+      "invoice_tampered_amount",
+      "invoice_tampered_copymove",
+      "kyc_tampered_signature",
+      "kyc_tampered_splice",
+      "property_tampered_addstamp",
+      "property_tampered_removestamp"
+    ],
+    "suggestedThreshold": null
+  },
+  "rows": [
+    {
+      "name": "bank_statement_original",
+      "is_tampered": false,
+      "localized": 1.88,
+      "contrast": 1.88,
+      "score": 91,
+      "detected": false,
+      "tamper_type": ""
+    },
+    {
+      "name": "bank_statement_tampered_recompress",
+      "is_tampered": true,
+      "localized": 2.08,
+      "contrast": 2.08,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "different_compression_history"
+    },
+    {
+      "name": "bank_statement_tampered_refid",
+      "is_tampered": true,
+      "localized": 2.08,
+      "contrast": 2.08,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "edited_reference_id"
+    },
+    {
+      "name": "inspection_report_original",
+      "is_tampered": false,
+      "localized": 1.83,
+      "contrast": 1.83,
+      "score": 91,
+      "detected": false,
+      "tamper_type": ""
+    },
+    {
+      "name": "inspection_report_tampered_date",
+      "is_tampered": true,
+      "localized": 1.99,
+      "contrast": 1.99,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "edited_date"
+    },
+    {
+      "name": "inspection_report_tampered_inspector",
+      "is_tampered": true,
+      "localized": 1.99,
+      "contrast": 1.99,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "changed_inspector"
+    },
+    {
+      "name": "inspection_report_tampered_status",
+      "is_tampered": true,
+      "localized": 1.97,
+      "contrast": 1.97,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "changed_status"
+    },
+    {
+      "name": "inspection_report_tampered_vehicle",
+      "is_tampered": true,
+      "localized": 2.01,
+      "contrast": 2.01,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "modified_vehicle_number"
+    },
+    {
+      "name": "invoice_original",
+      "is_tampered": false,
+      "localized": 1.83,
+      "contrast": 1.83,
+      "score": 91,
+      "detected": false,
+      "tamper_type": ""
+    },
+    {
+      "name": "invoice_tampered_amount",
+      "is_tampered": true,
+      "localized": 2.02,
+      "contrast": 2.02,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "changed_amount"
+    },
+    {
+      "name": "invoice_tampered_copymove",
+      "is_tampered": true,
+      "localized": 2.04,
+      "contrast": 2.04,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "copy_move"
+    },
+    {
+      "name": "kyc_form_original",
+      "is_tampered": false,
+      "localized": 1.83,
+      "contrast": 1.83,
+      "score": 91,
+      "detected": false,
+      "tamper_type": ""
+    },
+    {
+      "name": "kyc_tampered_signature",
+      "is_tampered": true,
+      "localized": 2.52,
+      "contrast": 2.52,
+      "score": 87,
+      "detected": false,
+      "tamper_type": "replaced_signature"
+    },
+    {
+      "name": "kyc_tampered_splice",
+      "is_tampered": true,
+      "localized": 1.95,
+      "contrast": 1.95,
+      "score": 90,
+      "detected": false,
+      "tamper_type": "spliced_region"
+    },
+    {
+      "name": "property_inspection_original",
+      "is_tampered": false,
+      "localized": 6.07,
+      "contrast": 6.07,
+      "score": 70,
+      "detected": false,
+      "tamper_type": ""
+    },
+    {
+      "name": "property_tampered_addstamp",
+      "is_tampered": true,
+      "localized": 6.07,
+      "contrast": 6.07,
+      "score": 70,
+      "detected": false,
+      "tamper_type": "added_stamp"
+    },
+    {
+      "name": "property_tampered_removestamp",
+      "is_tampered": true,
+      "localized": 2.11,
+      "contrast": 2.11,
+      "score": 89,
+      "detected": false,
+      "tamper_type": "removed_stamp"
+    }
+  ]
+}

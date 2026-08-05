@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "different_compression_history",
+  "originalImage": "bank_statement_original.jpg",
+  "modification": "Edited Closing Balance region pasted with different JPEG compression",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

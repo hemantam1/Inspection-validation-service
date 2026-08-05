@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "changed_inspector",
+  "originalImage": "inspection_report_original.jpg",
+  "modification": "Changed Inspector from John Smith to A Sharma",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

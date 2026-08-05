@@ -70,31 +70,29 @@ class DocumentAuthenticityValidator(BaseValidator):
                 request.evidence.fileUrl,
             )
 
-            ela_mean, ela_max = perform_ela(
+            localized_error, hotspot_contrast = perform_ela(
                 request.evidence.fileUrl,
             )
 
-            authenticity_score = (
-                calculate_authenticity_score(
-                    ela_mean,
-                    ela_max,
-                )
+            authenticity_score = calculate_authenticity_score(
+                localized_error,
+                hotspot_contrast,
             )
 
             tampering_detected = (
-                ela_mean >= ELA_THRESHOLD
+                localized_error >= ELA_THRESHOLD
             )
 
             logger.info(
                 (
                     "ELA Result | "
-                    "mean=%.2f | "
-                    "max=%.2f | "
+                    "localized_error=%.2f | "
+                    "hotspot_contrast=%.2f | "
                     "threshold=%.2f | "
                     "tampered=%s"
                 ),
-                ela_mean,
-                ela_max,
+                localized_error,
+                hotspot_contrast,
                 ELA_THRESHOLD,
                 tampering_detected,
             )
@@ -138,16 +136,16 @@ class DocumentAuthenticityValidator(BaseValidator):
                     "authenticityScore": (
                         authenticity_score
                     ),
-                    "elaMeanScore": round(
-                        ela_mean,
+                    "localizedError": round(
+                        localized_error,
                         2,
                     ),
-                    "elaMaxScore": round(
-                        ela_max,
+                    "hotspotContrast": round(
+                        hotspot_contrast,
                         2,
                     ),
                     "threshold": ELA_THRESHOLD,
-                    "method": "ELA",
+                    "method": "Localized Error Level Analysis",
                 },
                 riskFlags=risk_flags,
                 error=None,

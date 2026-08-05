@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "removed_stamp",
+  "originalImage": "property_inspection_original.jpg",
+  "modification": "Removed the genuine verification stamp",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

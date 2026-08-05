@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "added_stamp",
+  "originalImage": "inspection_report_original.jpg",
+  "modification": "Added a fake 'VERIFIED' stamp to an unstamped report",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

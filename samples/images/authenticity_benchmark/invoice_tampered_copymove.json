@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "copy_move",
+  "originalImage": "invoice_original.jpg",
+  "modification": "Copy-pasted the 'Reference Code' cell over the 'Date' cell",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

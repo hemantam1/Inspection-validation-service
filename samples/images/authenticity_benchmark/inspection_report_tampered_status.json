@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "changed_status",
+  "originalImage": "inspection_report_original.jpg",
+  "modification": "Changed Status from APPROVED to REJECTED",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

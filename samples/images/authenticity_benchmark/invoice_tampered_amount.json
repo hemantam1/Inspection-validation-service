@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "changed_amount",
+  "originalImage": "invoice_original.jpg",
+  "modification": "Changed amount from INR 2500.00 to INR 9500.00",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}

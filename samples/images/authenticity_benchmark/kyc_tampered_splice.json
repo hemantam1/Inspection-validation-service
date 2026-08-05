@@ -1,0 +1,8 @@
+{
+  "category": "tampered",
+  "tamperType": "spliced_region",
+  "originalImage": "kyc_form_original.jpg",
+  "modification": "Spliced a PAN value region from another document",
+  "expectedTamperingSuspected": true,
+  "expectedRiskFlag": "DOCUMENT_FRAUD"
+}
