@@ -18,6 +18,9 @@ from app.utils.authenticity_utils import (
     calculate_authenticity_score,
     perform_ela,
 )
+from app.utils.content_consistency import (
+    check_content_consistency,
+)
 from app.validators.base_validator import BaseValidator
 
 logger = get_logger(__name__)
@@ -97,6 +100,32 @@ class DocumentAuthenticityValidator(BaseValidator):
                 tampering_detected,
             )
 
+            content_result = check_content_consistency(request)
+
+            content_skipped = content_result.get("skipped", False)
+            content_matched = content_result.get("matched", True)
+            content_mismatch = (
+                not content_skipped and not content_matched
+            )
+
+            logger.info(
+                (
+                    "Content Consistency | "
+                    "skipped=%s | "
+                    "matched=%s"
+                ),
+                content_skipped,
+                content_matched,
+            )
+
+            # A content mismatch overrides the ELA verdict: the document must be
+            # treated as not authentic. When content is skipped or matched, the
+            # existing ELA behaviour is preserved exactly.
+            tampering_suspected = (
+                tampering_detected or content_mismatch
+            )
+            is_authentic = not tampering_suspected
+
             risk_flags = []
 
             if tampering_detected:
@@ -120,6 +149,29 @@ class DocumentAuthenticityValidator(BaseValidator):
                     )
                 )
 
+            if content_mismatch:
+
+                logger.warning(
+                    "Document content does not match expected values."
+                )
+
+                risk_flags.append(
+                    RiskFlag(
+                        riskEventType=(
+                            RiskEventType.DOCUMENT_FRAUD
+                        ),
+                        severity=RiskSeverity.MEDIUM,
+                        score=DOCUMENT_AUTHENTICITY_RISK_SCORE,
+                        reason=(
+                            "Document content does not match "
+                            "expected values: "
+                            + "; ".join(
+                                content_result.get("reasons", [])
+                            )
+                        ),
+                    )
+                )
+
             logger.info(
                 "Document Authenticity validation completed."
             )
@@ -127,12 +179,8 @@ class DocumentAuthenticityValidator(BaseValidator):
             return ValidationResult(
                 confidenceScore=authenticity_score,
                 result={
-                    "isAuthentic": (
-                        not tampering_detected
-                    ),
-                    "tamperingSuspected": (
-                        tampering_detected
-                    ),
+                    "isAuthentic": is_authentic,
+                    "tamperingSuspected": tampering_suspected,
                     "authenticityScore": (
                         authenticity_score
                     ),
@@ -146,6 +194,7 @@ class DocumentAuthenticityValidator(BaseValidator):
                     ),
                     "threshold": ELA_THRESHOLD,
                     "method": "Localized Error Level Analysis",
+                    "contentConsistency": content_result,
                 },
                 riskFlags=risk_flags,
                 error=None,
